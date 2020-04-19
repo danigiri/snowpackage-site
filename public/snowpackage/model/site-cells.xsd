@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:mf="http://dani.calidos.com/morfeu/metadata">
+
+	<xs:include schemaLocation="test-types.xsd" />
+
+	<!-- types go here -->
+	<xs:simpleType name="rTextField">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>React dynamic text field</mf:desc>
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\{.*\}" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- types go here -->
+	<xs:simpleType name="imgURLTextField">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>URL to image</mf:desc>
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="/img/.+\.png" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<xs:simpleType name="sizeList">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>List of possible sizes</mf:desc>
+					<mf:presentation>LIST</mf:presentation>
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="S" />
+			<xs:enumeration value="M" />
+			<xs:enumeration value="L" />
+			<xs:enumeration value="XL" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="categoryList">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>List of site categories</mf:desc>
+					<mf:presentation>LIST</mf:presentation>
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Cars" />
+			<xs:enumeration value="Houses" />
+			<xs:enumeration value="Clothes" />
+			<xs:enumeration value="Phones" />
+			<xs:enumeration value="Furniture" />
+			<xs:enumeration value="Misc" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<xs:simpleType name="colorsList">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>List of basic colors</mf:desc>
+					<mf:presentation>LIST</mf:presentation>
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="primary" />
+			<xs:enumeration value="secondary" />
+			<xs:enumeration value="light" />
+			<xs:enumeration value="dark" />
+			<xs:enumeration value="muted" />
+			<xs:enumeration value="white" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- **** header **** -->
+
+	<xs:complexType name="headerSpace">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>Header space</mf:desc>
+					<mf:presentation>WELL</mf:presentation>
+					<mf:thumb>/proxy/images/header-thumb.svg</mf:thumb>
+					<mf:cell-presentation></mf:cell-presentation>
+					<mf:readonly>true</mf:readonly>
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="Menu" type="menuCell" minOccurs="0" maxOccurs="1" />
+				<xs:element name="Search" type="searchCell" minOccurs="0" maxOccurs="1" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="menuCell">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>Menu with logo, language, account links, call to action...</mf:desc>
+					<mf:thumb>assets/images/menu-thumb.svg</mf:thumb>
+					<mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/Menu?$_ATTRIBUTES</mf:cell-presentation>
+					<mf:category categ="Logo" />
+					<mf:category attr="@logoCopy" categ="Logo" />
+					<mf:category attr="@logoSize" categ="Logo" />
+					<mf:category attr="@callCopy" categ="Call to action" />
+					<mf:default-value name="@logoSize">M</mf:default-value>
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:attribute name="logoCopy" type="textField" use="required" />
+		<xs:attribute name="logoSize" type="sizeList" />
+		<xs:attribute name="callCopy" type="textField" use="required" />
+	</xs:complexType>
+
+
+	<xs:complexType name="searchCell">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>Search area.</mf:desc>
+					<mf:thumb>assets/images/menu-thumb.svg</mf:thumb>
+					<mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/Search?$_ATTRIBUTES</mf:cell-presentation>
+					<mf:category categ="Logo" />
+					<mf:category attr="@startCategory" categ="Search configuration" />
+					<mf:category attr="@searchCopy" categ="Content" />
+					<mf:category attr="@searchExamplesCopy" categ="Content" />
+					<mf:default-value name="@startCategory">Cars</mf:default-value>
+					<mf:default-value name="@searchButtonCopy">Search!</mf:default-value>
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:attribute name="startCategory" type="categoryList" use="required" />
+		<xs:attribute name="searchButtonCopy" type="textField" use="required" />
+		<xs:attribute name="searchExamplesCopy" type="textField" />
+	</xs:complexType>
+
+	<!-- **** body **** -->
+	<xs:complexType name="bodySpace">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>Header space</mf:desc>
+					<mf:presentation>WELL</mf:presentation>
+					<mf:thumb>/proxy/images/header-thumb.svg</mf:thumb>
+					<mf:cell-presentation></mf:cell-presentation>
+					<mf:readonly>true</mf:readonly>
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Title" type="textContent" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="row" type="rowCell" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="rowCell">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>rows of content</mf:desc>
+					<mf:presentation>ROW-WELL</mf:presentation>
+					<mf:thumb>assets/images/row-thumb.svg</mf:thumb>
+					<mf:cell-presentation>assets/images/row-cell.svg</mf:cell-presentation>
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Col" type="colCell" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="number" type="numberField" />
+	</xs:complexType>
+
+	<xs:complexType name="colCell">
+		<xs:annotation>
+			<xs:appinfo>
+			<mf:metadata>
+				<mf:desc>Column, can accept content</mf:desc>
+				<mf:presentation>COL-WELL</mf:presentation>
+				<mf:thumb>assets/images/col-thumb.svg</mf:thumb>
+			</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="ImgText" type="imgText" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="size" use="required" type="colField" />
+	</xs:complexType>
+
+
+	<xs:complexType name="imgText">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>Static image with a title</mf:desc>
+					<mf:thumb>assets/images/menu-thumb.svg</mf:thumb>
+					<mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/ImgText?$_ATTRIBUTES</mf:cell-presentation>
+					<mf:category categ="Content" />
+					<mf:category attr="@text" categ="Content" />
+					<mf:category attr="@textSize" categ="Content" />
+					<mf:category attr="@textColor" categ="Content" />
+					<mf:category attr="@imgURL" categ="Content" />
+					<mf:default-value name="@textSize">M</mf:default-value>
+					<mf:default-value name="@imgURL">/img/IMAGE GOES HERE.png</mf:default-value>
+					<mf:default-value name="@textColor">black</mf:default-value>
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:attribute name="text" type="textField" use="required"/>
+		<xs:attribute name="textSize" type="sizeList" />
+		<xs:attribute name="textColor" type="colorsList" />
+		<xs:attribute name="imgURL" type="imgURLTextField" use="required"/>
+	</xs:complexType>
+
+
+	<!-- **** footer **** -->
+	<xs:complexType name="footerSpace">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>Footer space</mf:desc>
+					<mf:presentation>WELL</mf:presentation>
+					<mf:thumb>/proxy/images/footer-thumb.svg</mf:thumb>
+					<mf:cell-presentation></mf:cell-presentation>
+					<mf:readonly>true</mf:readonly>
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="Col" type="colCell" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="Copyright" type="copyright" minOccurs="0" maxOccurs="1"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="copyright">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>Copyright and legal information area</mf:desc>
+					<mf:thumb>assets/images/menu-thumb.svg</mf:thumb>
+					<mf:presentation>CELL-WELL</mf:presentation>
+					<mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/Copyright?$_ATTRIBUTES</mf:cell-presentation>
+					<mf:category categ="Content" />
+					<mf:category attr="@legalCopy" categ="Content" />
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ExtraLink" type="extraLink" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="legalCopy" type="textField" use="required"/>
+	</xs:complexType>
+
+
+	<xs:complexType name="extraLink">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>Extra link for footer copyright area</mf:desc>
+					<mf:thumb>assets/images/menu-thumb.svg</mf:thumb>
+					<mf:presentation>CELL-WELL</mf:presentation>
+					<mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/ExtraLink?$_ATTRIBUTES</mf:cell-presentation>
+					<mf:default-value name="@link">https://LINK GOES HERE/</mf:default-value>
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:attribute name="text" type="textField" use="required"/>
+		<xs:attribute name="link" type="textField" use="required"/>
+	</xs:complexType>
+
+</xs:schema>

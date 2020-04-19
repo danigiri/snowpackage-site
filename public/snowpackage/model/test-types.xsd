@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   xmlns:mf="http://dani.calidos.com/morfeu/metadata"
+		   >
+
+	<xs:annotation>
+		<xs:documentation>
+		XML Schema types used to test the system
+		</xs:documentation>
+	</xs:annotation>
+
+	<xs:simpleType name="numberField">
+		<xs:annotation>
+			<xs:documentation>
+			numberField desc
+			</xs:documentation>
+		</xs:annotation>
+
+		<xs:restriction base="xs:integer" />
+	</xs:simpleType>
+
+	<xs:simpleType name="colField">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>colField desc</mf:desc>
+					<mf:presentation>COL-FIELD</mf:presentation>
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"/>
+	      	<xs:maxInclusive value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="textField">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>textField desc</mf:desc>
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+	<xs:simpleType name="colorField">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>hexadecimal color field (rrggbb)</mf:desc>
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9a-fA-F]{6}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="booleanField">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>Boolean value (true|false)</mf:desc>
+					<mf:presentation>BOOLEAN</mf:presentation>
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+
+		<xs:restriction base="xs:boolean" />
+	</xs:simpleType>
+	
+	<xs:simpleType name="textContent">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>textContent is a multiple line text area for simple content</mf:desc>
+					<mf:presentation>CELL-TEXT</mf:presentation>
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+	<xs:simpleType name="textContentOneLine">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>textContent is a text field for simple content</mf:desc>
+					<mf:presentation>CELL-TEXT-ONELINE</mf:presentation>
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+</xs:schema>
