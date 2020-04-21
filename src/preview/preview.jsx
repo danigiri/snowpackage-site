@@ -2,50 +2,49 @@
 
 import { useLocation, useParams} from 'react-router-dom';
 
-/*
-import { Stuff } from './components/stuff';
-import { Data } from './components/data';
-import { Data3 } from './components/data3';
-import { Data4 } from './components/data4';
-import { Keyvalue } from './components/keyvalue';
-import { Readonly } from './components/readonly';
-import { Categ } from './components/categ';
-*/
+//import { Header } from '../components/header';
+import { Menu } from '../components/menu';
+import { Search } from '../components/search';
+//import { Body } from '../components/body';
+import { Title } from '../components/title';
+//import { Row } from '../components/row';
+//import { Col } from '../components/col';
+import { ImgText } from '../components/img-text';
+import { Footer } from '../components/footer';
+import { Copyright } from '../components/copyright';
+import { ExtraLink } from '../components/extra-link';
 
 export function Preview(props) {
 
 	const { component } = useParams();
 	const query = useQuery(); 
 	let params = {};
-	query.forEach( (v, k) => params[k] = v);
+	query.forEach((v, k) => params[k] = v);
 	const content = { children: query.has('_VALUE') ? query.get('_VALUE') : '' };
 
 	let preview;
 	switch(component) {
-/*		case 'Stuff':
-			preview = Stuff(content);
+		case 'Menu':
+			preview = Menu(params);
 		break;
-		case 'Data':
-			preview = Data(params);
+		case 'Search':
+			preview = new Search(params);
 		break;
-		case 'Data3':
-			preview = Data3(params);
+		case 'Title':
+			preview = Title(content);
 		break;
-		case 'Data4':
-			preview = Data4(params);
+		case 'ImgText':
+			preview = new ImgText(params);
 		break;
-		case 'Data5':
-			preview = Data4(params);
+		case 'Footer':
+			preview = Footer(params);
 		break;
-		case 'Keyvalue':
-			preview = Keyvalue(params);
+		case 'Copyright':
+			preview = Copyright(params);
 		break;
-		case 'Readonly':
-			preview = Readonly(params);
+		case 'ExtraLink':
+			preview = ExtraLink(params);
 		break;
-		case 'Categ':
-			preview = Categ(params);
-		break; */
 	default:
 		preview = '';
 	}

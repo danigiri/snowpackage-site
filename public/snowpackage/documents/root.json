@@ -1,0 +1,7 @@
+{
+	"name": "Homepage"
+	,"desc": "Homepage JSX"
+	,"kind": "jsx"
+	,"modelURI": "proxy/site/snowpackage/model/site-model.xsd"
+	,"contentURI": "dyn/content/root.jsx"
+}

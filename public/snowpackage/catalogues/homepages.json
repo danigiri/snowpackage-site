@@ -1,0 +1,9 @@
+{
+	"name": "Homepages"
+	,"desc": "Homepages for the Snowpackage test site"
+	,"documents": [
+		{ "name":"Root", "kind": "jsx", "uri":"/proxy/site/snowpackage/documents/root.json" }
+	]
+	,"snippets": [
+		]
+}

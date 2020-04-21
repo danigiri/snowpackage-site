@@ -7,7 +7,7 @@ export function ExtraLink(props) {
 	const text = props.text;
 	const link = props.link;
 
-	return 	<span className="navbar-text mx-5"><a href="{link}">{text}</a></span>;
+	return 	<span className="navbar-text mx-5"><a href={link}>{text}</a></span>;
 
 }
 

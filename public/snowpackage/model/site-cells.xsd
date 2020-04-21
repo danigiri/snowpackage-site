@@ -69,7 +69,6 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-
 	<xs:simpleType name="colorsList">
 		<xs:annotation>
 			<xs:appinfo>
@@ -88,6 +87,7 @@
 			<xs:enumeration value="white" />
 		</xs:restriction>
 	</xs:simpleType>
+
 
 	<!-- **** header **** -->
 
@@ -116,7 +116,7 @@
 			<xs:appinfo>
 				<mf:metadata>
 					<mf:desc>Menu with logo, language, account links, call to action...</mf:desc>
-					<mf:thumb>assets/images/menu-thumb.svg</mf:thumb>
+					<mf:thumb>/proxy/snowpackage-site/img/menu-thumb.svg</mf:thumb>
 					<mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/Menu?$_ATTRIBUTES</mf:cell-presentation>
 					<mf:category categ="Logo" />
 					<mf:category attr="@logoCopy" categ="Logo" />
@@ -141,7 +141,7 @@
 					<mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/Search?$_ATTRIBUTES</mf:cell-presentation>
 					<mf:category categ="Logo" />
 					<mf:category attr="@startCategory" categ="Search configuration" />
-					<mf:category attr="@searchCopy" categ="Content" />
+					<mf:category attr="@searchButtonCopy" categ="Content" />
 					<mf:category attr="@searchExamplesCopy" categ="Content" />
 					<mf:default-value name="@startCategory">Cars</mf:default-value>
 					<mf:default-value name="@searchButtonCopy">Search!</mf:default-value>
@@ -168,7 +168,7 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Title" type="textContent" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="row" type="rowCell" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Row" type="rowCell" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -242,7 +242,7 @@
 					<mf:desc>Footer space</mf:desc>
 					<mf:presentation>WELL</mf:presentation>
 					<mf:thumb>/proxy/images/footer-thumb.svg</mf:thumb>
-					<mf:cell-presentation></mf:cell-presentation>
+					<mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/Footer?$_ATTRIBUTES</mf:cell-presentation>
 					<mf:readonly>true</mf:readonly>
 				</mf:metadata>
 			</xs:appinfo>
@@ -273,7 +273,6 @@
 		</xs:sequence>
 		<xs:attribute name="legalCopy" type="textField" use="required"/>
 	</xs:complexType>
-
 
 	<xs:complexType name="extraLink">
 		<xs:annotation>

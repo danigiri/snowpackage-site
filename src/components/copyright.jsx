@@ -8,7 +8,7 @@ export function Copyright(props) {
 
 	return	<nav class="navbar navbar-expand-lg navbar-light" style={{backgroundColor: '#e3f2fd'}}>
 				<ul className="list-group list-group-horizontal">
-					<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{legalCopy}</a>
+					<span class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{legalCopy}</span>
 					<div className="collapse navbar-collapse">
 						<ul className="navbar-nav ml-auto">
 							<li className="nav-item">
