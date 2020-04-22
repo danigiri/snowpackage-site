@@ -4,8 +4,9 @@ import React from 'react';
 
 export function Title(props) {
 
-	const value = props.children;
+	const value = props._value;
 
+console.debug(value);
 	return <div className="row">
 				<div className="col"><h2>{value}</h2></div>
 			</div>;

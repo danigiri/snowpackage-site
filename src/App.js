@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 import { Preview } from './preview/preview';
-import { Root } from './root';
+import { Root } from './snowpackage/root';
 
 
 function App() {

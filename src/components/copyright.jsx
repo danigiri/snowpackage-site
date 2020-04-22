@@ -6,9 +6,9 @@ export function Copyright(props) {
 
 	const legalCopy = props.legalCopy;
 
-	return	<nav class="navbar navbar-expand-lg navbar-light" style={{backgroundColor: '#e3f2fd'}}>
+	return	<nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: '#e3f2fd'}}>
 				<ul className="list-group list-group-horizontal">
-					<span class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{legalCopy}</span>
+					<span className="nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">{legalCopy}</span>
 					<div className="collapse navbar-collapse">
 						<ul className="navbar-nav ml-auto">
 							<li className="nav-item">

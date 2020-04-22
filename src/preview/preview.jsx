@@ -20,7 +20,7 @@ export function Preview(props) {
 	const query = useQuery(); 
 	let params = {};
 	query.forEach((v, k) => params[k] = v);
-	const content = { children: query.has('_VALUE') ? query.get('_VALUE') : '' };
+	//const content = { children: query.has('_VALUE') ? query.get('_VALUE') : '' };
 
 	let preview;
 	switch(component) {
@@ -28,13 +28,13 @@ export function Preview(props) {
 			preview = Menu(params);
 		break;
 		case 'Search':
-			preview = new Search(params);
+			preview = new Search(params).render();
 		break;
 		case 'Title':
-			preview = Title(content);
+			preview = Title(params);
 		break;
 		case 'ImgText':
-			preview = new ImgText(params);
+			preview = new ImgText(params).render();
 		break;
 		case 'Footer':
 			preview = Footer(params);

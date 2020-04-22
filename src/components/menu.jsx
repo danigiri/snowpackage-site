@@ -17,7 +17,7 @@ export function Menu(props) {
 	}
 
 	return <>
-				<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+				<nav className="navbar navbar-expand-lg navbar-dark bg-primary">
 					<a className="navbar-brand" href="/">
 						<img src={logoURL} className="float-left" alt="logo" />
 					</a>

@@ -23,12 +23,12 @@ handleChange(event) {
 render() {
 
 	return <>
-				<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<nav className="navbar navbar-expand-lg navbar-light bg-light">
 					<div className="collapse navbar-collapse">
 						<ul className="navbar-nav ml-auto">
 							<form className="form-inline">
-								<div class="row">
-									<div class="col">
+								<div className="row">
+									<div className="col">
 										<select id="category" 
 												className="form-control"
 												value={this.state.searchCategory} 
@@ -43,15 +43,15 @@ render() {
 										</select>
 									</div>
 								</div>
-								<div class="row">
-									<div class="col">
-										<input 	class="form-control" 
+								<div className="row">
+									<div className="col">
+										<input 	className="form-control" 
 												type="text" 
 												placeholder={this.searchExamplesCopy} />
 									</div>
 								</div>
-								<div class="row">
-									<div class="col">
+								<div className="row">
+									<div className="col">
 										<button
 											className="btn btn-sm btn-outline-secondary" 
 											type="button"
