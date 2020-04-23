@@ -11,8 +11,9 @@
 			<mf:extra-metadata>
 				<mf:metadata uri="codeslots/codeslot/Body/Title">
 					<mf:desc>Body title</mf:desc>
-					<mf:thumb>assets/images/keyvalue-thumb.svg</mf:thumb>
-					<mf:cell-presentation type="IFRAME">http://localhost:3010/preview/Search/Title?_VALUE=$_VALUE</mf:cell-presentation>
+					<mf:thumb>/proxy/site/snowpackage/img/title-thumb.svg</mf:thumb>
+					<mf:cell-presentation>/proxy/site/snowpackage/img/title-cell.svg</mf:cell-presentation>
+					<!--mf:cell-presentation type="IFRAME">http://localhost:3010/preview/Search/Title?_VALUE=$_VALUE</mf:cell-presentation-->
 				</mf:metadata>
 			</mf:extra-metadata>
 		</xs:appinfo>

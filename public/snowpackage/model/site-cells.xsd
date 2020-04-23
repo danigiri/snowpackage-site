@@ -97,8 +97,7 @@
 				<mf:metadata>
 					<mf:desc>Header space</mf:desc>
 					<mf:presentation>WELL</mf:presentation>
-					<mf:thumb>/proxy/images/header-thumb.svg</mf:thumb>
-					<mf:cell-presentation></mf:cell-presentation>
+					<mf:thumb>/proxy/site/snowpackage/img/header-thumb.svg</mf:thumb>
 					<mf:readonly>true</mf:readonly>
 				</mf:metadata>
 			</xs:appinfo>
@@ -116,8 +115,9 @@
 			<xs:appinfo>
 				<mf:metadata>
 					<mf:desc>Menu with logo, language, account links, call to action...</mf:desc>
-					<mf:thumb>/proxy/snowpackage-site/img/menu-thumb.svg</mf:thumb>
-					<mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/Menu?$_ATTRIBUTES</mf:cell-presentation>
+					<mf:thumb>/proxy/site/snowpackage/img/menu-thumb.svg</mf:thumb>
+					<!-- mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/Menu?$_ATTRIBUTES</mf:cell-presentation-->
+					<mf:cell-presentation>/proxy/site/snowpackage/img/menu-cell.svg</mf:cell-presentation>
 					<mf:category categ="Logo" />
 					<mf:category attr="@logoCopy" categ="Logo" />
 					<mf:category attr="@logoSize" categ="Logo" />
@@ -137,8 +137,9 @@
 			<xs:appinfo>
 				<mf:metadata>
 					<mf:desc>Search area.</mf:desc>
-					<mf:thumb>assets/images/menu-thumb.svg</mf:thumb>
-					<mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/Search?$_ATTRIBUTES</mf:cell-presentation>
+					<mf:thumb>/proxy/site/snowpackage/img/search-thumb.svg</mf:thumb>
+					<!-- mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/Search?$_ATTRIBUTES</mf:cell-presentation-->
+					<mf:cell-presentation>/proxy/site/snowpackage/img/search-cell.svg</mf:cell-presentation>
 					<mf:category categ="Logo" />
 					<mf:category attr="@startCategory" categ="Search configuration" />
 					<mf:category attr="@searchButtonCopy" categ="Content" />
@@ -160,8 +161,7 @@
 				<mf:metadata>
 					<mf:desc>Header space</mf:desc>
 					<mf:presentation>WELL</mf:presentation>
-					<mf:thumb>/proxy/images/header-thumb.svg</mf:thumb>
-					<mf:cell-presentation></mf:cell-presentation>
+					<mf:thumb>/proxy/site/snowpackage/img/body-thumb.svg</mf:thumb>
 					<mf:readonly>true</mf:readonly>
 				</mf:metadata>
 			</xs:appinfo>
@@ -214,7 +214,7 @@
 			<xs:appinfo>
 				<mf:metadata>
 					<mf:desc>Static image with a title</mf:desc>
-					<mf:thumb>assets/images/menu-thumb.svg</mf:thumb>
+					<mf:thumb>/proxy/site/snowpackage/img/imgtext-thumb.svg</mf:thumb>
 					<mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/ImgText?$_ATTRIBUTES</mf:cell-presentation>
 					<mf:category categ="Content" />
 					<mf:category attr="@text" categ="Content" />
@@ -241,8 +241,9 @@
 				<mf:metadata>
 					<mf:desc>Footer space</mf:desc>
 					<mf:presentation>WELL</mf:presentation>
-					<mf:thumb>/proxy/images/footer-thumb.svg</mf:thumb>
-					<mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/Footer?$_ATTRIBUTES</mf:cell-presentation>
+					<mf:thumb>/proxy/site/snowpackage/img/footer-thumb.svg</mf:thumb>
+					<mf:cell-presentation>/proxy/site/snowpackage/img/footer-thumb.svg</mf:cell-presentation>
+					<!--mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/Footer?$_ATTRIBUTES</mf:cell-presentation-->
 					<mf:readonly>true</mf:readonly>
 				</mf:metadata>
 			</xs:appinfo>
@@ -260,8 +261,9 @@
 			<xs:appinfo>
 				<mf:metadata>
 					<mf:desc>Copyright and legal information area</mf:desc>
-					<mf:thumb>assets/images/menu-thumb.svg</mf:thumb>
 					<mf:presentation>CELL-WELL</mf:presentation>
+					<mf:thumb>/proxy/site/snowpackage/img/copyright-thumb.svg</mf:thumb>
+					<!--mf:cell-presentation>/proxy/site/snowpackage/img/copyright-cell.svg</mf:cell-presentation-->
 					<mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/Copyright?$_ATTRIBUTES</mf:cell-presentation>
 					<mf:category categ="Content" />
 					<mf:category attr="@legalCopy" categ="Content" />
@@ -279,9 +281,10 @@
 			<xs:appinfo>
 				<mf:metadata>
 					<mf:desc>Extra link for footer copyright area</mf:desc>
-					<mf:thumb>assets/images/menu-thumb.svg</mf:thumb>
 					<mf:presentation>CELL-WELL</mf:presentation>
-					<mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/ExtraLink?$_ATTRIBUTES</mf:cell-presentation>
+					<mf:thumb>/proxy/site/snowpackage/img/extralink-thumb.svg</mf:thumb>
+					<mf:cell-presentation>/proxy/site/snowpackage/img/extralink-cell.svg</mf:cell-presentation>
+					<!--mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/ExtraLink?$_ATTRIBUTES</mf:cell-presentation-->
 					<mf:default-value name="@link">https://LINK GOES HERE/</mf:default-value>
 				</mf:metadata>
 			</xs:appinfo>
