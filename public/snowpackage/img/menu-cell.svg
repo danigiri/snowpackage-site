@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="414pt" height="46pt" viewBox="0 0 414 46" version="1.1">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="414pt" height="25pt" viewBox="0 0 414 25" version="1.1">
 <defs>
 <g>
 <symbol overflow="visible" id="glyph0-0">
@@ -20,12 +20,12 @@
 </g>
 </defs>
 <g id="surface1">
-<path style="fill-rule:nonzero;fill:rgb(74.902344%,74.902344%,100%);fill-opacity:1;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 157 73 L 560.023438 73 C 562.234375 73 564.023438 74.789062 564.023438 77 L 564.023438 113 C 564.023438 115.210938 562.234375 117 560.023438 117 L 157 117 C 154.789062 117 153 115.210938 153 113 L 153 77 C 153 74.789062 154.789062 73 157 73 Z M 157 73 " transform="matrix(1,0,0,1,-152,-72)"/>
+<path style="fill-rule:nonzero;fill:rgb(74.902344%,74.902344%,100%);fill-opacity:1;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 157 73 L 560.023438 73 C 562.234375 73 564.023438 74.789062 564.023438 77 L 564.023438 91.675781 C 564.023438 93.886719 562.234375 95.675781 560.023438 95.675781 L 157 95.675781 C 154.789062 95.675781 153 93.886719 153 91.675781 L 153 77 C 153 74.789062 154.789062 73 157 73 Z M 157 73 " transform="matrix(1,0,0,1,-152,-72)"/>
 <g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
-  <use xlink:href="#glyph0-1" x="182.2158" y="29.2679"/>
-  <use xlink:href="#glyph0-2" x="196.7278" y="29.2679"/>
-  <use xlink:href="#glyph0-3" x="207.0958" y="29.2679"/>
-  <use xlink:href="#glyph0-4" x="218.9518" y="29.2679"/>
+  <use xlink:href="#glyph0-1" x="182.2158" y="18.60653"/>
+  <use xlink:href="#glyph0-2" x="196.7278" y="18.60653"/>
+  <use xlink:href="#glyph0-3" x="207.0958" y="18.60653"/>
+  <use xlink:href="#glyph0-4" x="218.9518" y="18.60653"/>
 </g>
 </g>
 </svg>
