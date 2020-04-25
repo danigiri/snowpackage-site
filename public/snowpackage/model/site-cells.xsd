@@ -9,7 +9,7 @@
 		<xs:annotation>
 			<xs:appinfo>
 				<mf:metadata>
-					<mf:desc>React dynamic text field</mf:desc>
+					<mf:desc>React dynamic text field, can be left empty with {}</mf:desc>
 				</mf:metadata>
 			</xs:appinfo>
 		</xs:annotation>
@@ -18,7 +18,19 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<!-- types go here -->
+	<xs:simpleType name="rNumberField">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>React dynamic numeric field, cannot be nempty</mf:desc>
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\{\d+\}" />
+		</xs:restriction>
+	</xs:simpleType>
+
 	<xs:simpleType name="imgURLTextField">
 		<xs:annotation>
 			<xs:appinfo>
@@ -98,6 +110,7 @@
 					<mf:desc>Header space</mf:desc>
 					<mf:presentation>WELL</mf:presentation>
 					<mf:thumb>/proxy/site/snowpackage/img/header-thumb.svg</mf:thumb>
+					<mf:cell-presentation>/proxy/site/snowpackage/img/header-cell.svg</mf:cell-presentation>
 					<mf:readonly>true</mf:readonly>
 				</mf:metadata>
 			</xs:appinfo>
@@ -106,6 +119,7 @@
 			<xs:choice minOccurs="0" maxOccurs="unbounded">
 				<xs:element name="Menu" type="menuCell" minOccurs="0" maxOccurs="1" />
 				<xs:element name="Search" type="searchCell" minOccurs="0" maxOccurs="1" />
+				<xs:element name="Experiment" type="experiment" minOccurs="0" maxOccurs="1" />
 			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
@@ -162,6 +176,7 @@
 					<mf:desc>Header space</mf:desc>
 					<mf:presentation>WELL</mf:presentation>
 					<mf:thumb>/proxy/site/snowpackage/img/body-thumb.svg</mf:thumb>
+					<mf:cell-presentation>/proxy/site/snowpackage/img/body-cell.svg</mf:cell-presentation>
 					<mf:readonly>true</mf:readonly>
 				</mf:metadata>
 			</xs:appinfo>
@@ -203,6 +218,7 @@
 		<xs:sequence>
 			<xs:choice maxOccurs="unbounded">
 				<xs:element name="ImgText" type="imgText" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="Experiment" type="experiment" minOccurs="0" maxOccurs="1" />
 			</xs:choice>
 		</xs:sequence>
 		<xs:attribute name="size" use="required" type="colField" />
@@ -250,7 +266,7 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:choice minOccurs="0" maxOccurs="unbounded">
-				<xs:element name="Col" type="colCell" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="Row" type="rowCell" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element name="Copyright" type="copyright" minOccurs="0" maxOccurs="1"/>
 			</xs:choice>
 		</xs:sequence>
@@ -281,7 +297,7 @@
 			<xs:appinfo>
 				<mf:metadata>
 					<mf:desc>Extra link for footer copyright area</mf:desc>
-					<mf:presentation>CELL-WELL</mf:presentation>
+					<mf:presentation>CELL</mf:presentation>
 					<mf:thumb>/proxy/site/snowpackage/img/extralink-thumb.svg</mf:thumb>
 					<mf:cell-presentation>/proxy/site/snowpackage/img/extralink-cell.svg</mf:cell-presentation>
 					<!--mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/ExtraLink?$_ATTRIBUTES</mf:cell-presentation-->
@@ -292,5 +308,34 @@
 		<xs:attribute name="text" type="textField" use="required"/>
 		<xs:attribute name="link" type="textField" use="required"/>
 	</xs:complexType>
+
+
+	<!-- experiment stuff -->
+	<xs:complexType name="experiment">
+		<xs:annotation>
+			<xs:appinfo>
+				<mf:metadata>
+					<mf:desc>A|B or A|A experiment</mf:desc>
+					<mf:presentation>WELL</mf:presentation>
+					<mf:thumb>/proxy/site/snowpackage/img/experiment-thumb.svg</mf:thumb>
+					<mf:cell-presentation>/proxy/site/snowpackage/img/experiment-cell-wide.svg</mf:cell-presentation>
+					<!-- mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/Experiment?$_ATTRIBUTES</mf:cell-presentation-->
+				</mf:metadata>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="Menu" type="menuCell" minOccurs="0" maxOccurs="2" />
+				<xs:element name="Search" type="searchCell" minOccurs="0" maxOccurs="2" />
+				<xs:element name="Title" type="textContent" minOccurs="0" maxOccurs="2"/>
+				<xs:element name="Row" type="rowCell" minOccurs="0" maxOccurs="2"/>
+				<xs:element name="ImgText" type="imgText" minOccurs="0" maxOccurs="2"/>
+				<xs:element name="Copyright" type="copyright" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="ExtraLink" type="extraLink" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="experimentID" type="rNumberField" use="required"/>
+	</xs:complexType>
+
 
 </xs:schema>
