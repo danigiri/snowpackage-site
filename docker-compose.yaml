@@ -1,0 +1,31 @@
+version: '3'
+services:
+    morfeu:
+        container_name: morfeu-webapp
+        build: ../morfeu
+        image: morfeu:0.6.2
+        ports: 8980:8980
+        environment:
+            RESOURCES_PREFIX: http://localhost:8990/
+            PROXY_PREFIX: http://localhost:8990
+    snowpackage:
+        container_name: snow-package
+        build: ../snow-package
+        image: snow-package:0.0.2
+        ports: 8980:8980
+        args:
+            MORFEU_VERSION: 0.6.2
+        environment:
+            RESOURCES_PREFIX: /site
+            PROXY_PREFIX: http://localhost:3010
+        volumes:
+            - source: src
+              target: /site
+    snowpackage_site:
+        container_name: snow-package-site
+        build: .
+        image: snowpackage-site:0.0.2
+        ports: 3010:3010
+        volumes:
+            - source: src
+              target: /site

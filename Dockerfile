@@ -1,9 +1,13 @@
-FROM snow-package:0.0.2
+FROM node:3-alpine
 
 LABEL maintainer="Daniel Giribet - dani [at] calidos [dot] cat"
 
 # variables for the site
 ARG SITE_HOME /site
+
+# install dependencies (bash to launch angular build, ncurses for pretty output with tput, git for npm deps)
+RUN apk add --no-cache curl bash ncurses git
+RUN apk add --no-cache --update nodejs npm
 
 RUN mkdir -p $(SITE_HOME}
 WORKDIR ${SITE_HOME}
