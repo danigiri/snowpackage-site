@@ -2,7 +2,10 @@ version: "3.7"
 services:
     morfeu:
         container_name: morfeu-webapp
-        build: ../morfeu
+        build: 
+            context: ../morfeu
+            args:
+                MAVEN_OPTS:
         image: morfeu:0.6.2
         ports: 
             - "8980:8980"
@@ -11,7 +14,10 @@ services:
             PROXY_PREFIX: http://localhost:8990
     snowpackage:
         container_name: snow-package
-        build: ../snow-package
+        build:
+            context: ../snow-package
+            args:
+                MAVEN_OPTS:
         image: snow-package:0.0.2
         ports: 
             - "8990:8990"
