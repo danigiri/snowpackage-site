@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 services:
     morfeu:
         container_name: morfeu-webapp
@@ -12,8 +12,6 @@ services:
     snowpackage:
         container_name: snow-package
         build: ../snow-package
-            args:
-                MORFEU_VERSION: 0.6.2
         image: snow-package:0.0.2
         ports: 
             - "8990:8990"
@@ -21,7 +19,8 @@ services:
             RESOURCES_PREFIX: /site
             PROXY_PREFIX: http://localhost:3010
         volumes:
-            - source: src
+            - type: bind
+              source: src
               target: /site
     snowpackage_site:
         container_name: snow-package-site
@@ -30,5 +29,6 @@ services:
         ports: 
             - "3010:3010"
         volumes:
-            - source: src
+            - type: bind
+              source: src
               target: /site
