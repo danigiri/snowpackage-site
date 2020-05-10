@@ -5,7 +5,7 @@ services:
         build: 
             context: ../morfeu
             args:
-                MAVEN_OPTS:
+                MAVEN_OPTS: ""
         image: morfeu:0.6.2
         ports: 
             - "8980:8980"
@@ -17,7 +17,7 @@ services:
         build:
             context: ../snow-package
             args:
-                MAVEN_OPTS:
+                MAVEN_OPTS: ""
         image: snow-package:0.0.2
         ports: 
             - "8990:8990"
