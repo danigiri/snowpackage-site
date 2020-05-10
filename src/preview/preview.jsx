@@ -1,6 +1,6 @@
 // PREVIEW . JSX
 
-import { useLocation, useParams} from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 //import { Header } from '../components/header';
 import { Menu } from '../components/menu';
@@ -20,6 +20,7 @@ export function Preview(props) {
 	const query = useQuery(); 
 	let params = {};
 	query.forEach((v, k) => params[k] = v);
+	params._preview = true;
 	//const content = { children: query.has('_VALUE') ? query.get('_VALUE') : '' };
 
 	let preview;

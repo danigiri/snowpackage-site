@@ -111,7 +111,7 @@
 					<mf:presentation>WELL</mf:presentation>
 					<mf:thumb>/proxy/site/snowpackage/img/header-thumb.svg</mf:thumb>
 					<mf:cell-presentation>/proxy/site/snowpackage/img/header-cell.svg</mf:cell-presentation>
-					<mf:readonly>true</mf:readonly>
+					<!-- mf:readonly>true</mf:readonly-->
 				</mf:metadata>
 			</xs:appinfo>
 		</xs:annotation>
@@ -119,7 +119,7 @@
 			<xs:choice minOccurs="0" maxOccurs="unbounded">
 				<xs:element name="Menu" type="menuCell" minOccurs="0" maxOccurs="1" />
 				<xs:element name="Search" type="searchCell" minOccurs="0" maxOccurs="1" />
-				<xs:element name="Experiment" type="experiment" minOccurs="0" maxOccurs="1" />
+				<xs:element name="Experiment" type="experiment" minOccurs="0" maxOccurs="2" />
 			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
@@ -154,7 +154,7 @@
 					<mf:thumb>/proxy/site/snowpackage/img/search-thumb.svg</mf:thumb>
 					<!-- mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/Search?$_ATTRIBUTES</mf:cell-presentation-->
 					<mf:cell-presentation>/proxy/site/snowpackage/img/search-cell.svg</mf:cell-presentation>
-					<mf:category categ="Logo" />
+					<mf:category categ="Search configuration" />
 					<mf:category attr="@startCategory" categ="Search configuration" />
 					<mf:category attr="@searchButtonCopy" categ="Content" />
 					<mf:category attr="@searchExamplesCopy" categ="Content" />
@@ -319,6 +319,7 @@
 					<mf:presentation>WELL</mf:presentation>
 					<mf:thumb>/proxy/site/snowpackage/img/experiment-thumb.svg</mf:thumb>
 					<mf:cell-presentation>/proxy/site/snowpackage/img/experiment-cell-wide.svg</mf:cell-presentation>
+					<mf:default-value name="@experimentID">{1234}</mf:default-value>
 					<!-- mf:cell-presentation type="IFRAME">http://localhost:3010/#/preview/Experiment?$_ATTRIBUTES</mf:cell-presentation-->
 				</mf:metadata>
 			</xs:appinfo>
