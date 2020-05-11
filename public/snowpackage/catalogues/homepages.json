@@ -5,5 +5,7 @@
 		{ "name":"Root", "kind": "jsx", "uri":"/proxy/site/snowpackage/documents/root.json" }
 	]
 	,"snippets": [
-		]
+	 { "name": "A|B Experiment 1", "kind": "examples", "uri": "/proxy/site/snowpackage/snippets/experiment-1.json"}
+
+	]
 }

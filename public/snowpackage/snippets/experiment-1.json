@@ -1,0 +1,8 @@
+{
+	"name": "A|B Experiment 1"
+	,"desc": "A|B header experiment example"
+	,"kind": "examples"
+	,"modelURI": "proxy/site/snowpackage/model/site-model.xsd?filter=/codeslots/codeslot/Header/Experiment"
+	,"skipValidation": true
+	,"contentURI": "proxy/site/snowpackage/snippets/experiment-1.jsx"
+}
