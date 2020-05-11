@@ -1,17 +1,14 @@
 version: "3.7"
 services:
-    squid:
-        container_name: squid
-        image: datadog/squid
     morfeu:
         container_name: morfeu-webapp
-        build: 
+        build:
             context: ../morfeu
             args:
-                MAVEN_OPTS: "-DproxySet=true -Dhttp.proxyHost=squid -Dhttp.proxyPort=3128 -Djava.net.useSystemProxies=true"
-                HTTP_PROXY_: "http://squid:3128/"
+                MAVEN_OPTS: "${MAVEN_OPTS_ARG}"
+                HTTP_PROXY_: "${PROXY_ARG}"
         image: morfeu:0.6.2
-        ports: 
+        ports:
             - "8980:8980"
         environment:
             RESOURCES_PREFIX: http://snow-package:8990/
@@ -21,25 +18,23 @@ services:
         build:
             context: ../snow-package
             args:
-                MAVEN_OPTS: "-DproxySet=true -Dhttp.proxyHost=squid -Dhttp.proxyPort=3128 -Djava.net.useSystemProxies=true"
-                HTTP_PROXY_: "http://squid:3128/"
+                MAVEN_OPTS: "${MAVEN_OPTS_ARG}"
+                HTTP_PROXY_: "${PROXY_ARG}"
         image: snow-package:0.0.2
-        ports: 
+        ports:
             - "8990:8990"
         environment:
             RESOURCES_PREFIX: file:///site/
             PROXY_PREFIX: http://snow-package-site:3010
         volumes:
-            - type: bind
-              source: src
-              target: /site
+            - site-content:/site
     snowpackage_site:
         container_name: snow-package-site
         build: .
         image: snowpackage-site:0.0.2
-        ports: 
+        ports:
             - "3010:3010"
         volumes:
-            - type: bind
-              source: src
-              target: /site
+            - site-content:/site
+volumes:
+    site-content:
