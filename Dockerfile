@@ -17,11 +17,12 @@ COPY package-lock.json /site/package-lock.json
 COPY package.json /site/package.json
 
 # copy resources and code now
-COPY public /site/public
 COPY src /site/src
+RUN cd /site && npm install
 
-WORKDIR ${SITE_HOME}
-RUN npm install
+COPY public /site/public
+
 # start
-ENTRYPOINT PORT=3010 BROWSER=none npm start
+WORKDIR ${SITE_HOME}
+ENTRYPOINT HOST=0.0.0.0 PORT=3010 BROWSER=none npm start
 

@@ -9,10 +9,18 @@ services:
                 HTTP_PROXY_: "${PROXY_ARG}"
         image: morfeu:0.6.2
         ports:
-            - "8980:8980"
+            - 8980:8980
         environment:
             RESOURCES_PREFIX: http://snow-package:8990/
             PROXY_PREFIX: http://snow-package:8990
+    snowpackage_site:
+        container_name: snowpackage-site
+        build: .
+        image: snowpackage-site:0.0.2
+        ports:
+            - 3010:3010
+        volumes:
+            - site-content:/site
     snowpackage:
         container_name: snow-package
         build:
@@ -22,18 +30,10 @@ services:
                 HTTP_PROXY_: "${PROXY_ARG}"
         image: snow-package:0.0.2
         ports:
-            - "8990:8990"
+            - 8990:8990
         environment:
-            RESOURCES_PREFIX: file:///site/
-            PROXY_PREFIX: http://snow-package-site:3010
-        volumes:
-            - site-content:/site
-    snowpackage_site:
-        container_name: snow-package-site
-        build: .
-        image: snowpackage-site:0.0.2
-        ports:
-            - "3010:3010"
+            RESOURCES_PREFIX: file:///site/src/snowpackage/
+            PROXY_PREFIX: http://snowpackage-site:3010
         volumes:
             - site-content:/site
 volumes:
