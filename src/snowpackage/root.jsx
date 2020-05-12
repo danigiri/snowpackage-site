@@ -17,24 +17,26 @@ import { Experiment } from '../components/experiment';
 /* eslint-enable no-unused-vars */
 
 export function Root() {
-	const _root = 
-<>
+	const _root = <>
 <Header>
 <Menu callCopy="Please enjoy this demo site!" logoCopy="Welcome to snow package" logoSize="L"/>
-<Search searchButtonCopy="Search!" searchExamplesCopy="iPhone, Android, affordable phones..." startCategory="Phones"/>
+<Experiment experimentID={1234}>
+	<Search searchButtonCopy="Search!" searchExamplesCopy="iPhone, Android, affordable phones..." startCategory="Phones"/>
+	<Search searchButtonCopy="Search!" searchExamplesCopy="Cheap cars, sports cars..." startCategory="Cars"/>
+</Experiment>
 </Header>
 <Body>
 <Title>Need some inspiration for today?</Title>
 <Row>
 	<Col size="8">
 		<ImgText imgURL="/img/photos/houses.png" text="Nice apartments" textColor="light" textSize="M"/>
-		<ImgText imgURL="/img/photos/cars.png" text="Cars!" textColor="light" textSize="XL"/>
 		<ImgText imgURL="/img/photos/clothes.png" text="Clothes" textColor="white" textSize="XL"/>
+		<ImgText imgURL="/img/photos/cars.png" text="Cars!" textColor="light" textSize="XL"/>
 	</Col>
 	<Col size="4">
 		<Experiment experimentID={1111}>
 			<ImgText imgURL="/img/photos/misc.png" text="Bargains here!" textColor="dark" textSize="XL"/>
-			<ImgText imgURL="/img/photos/phones.png" text="Handsets" textColor="primary" textSize="XL"/>
+			<ImgText imgURL="/img/photos/phones.png" text="Handsets!" textColor="primary" textSize="XL"/>
 		</Experiment>
 	</Col>
 </Row>

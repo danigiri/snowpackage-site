@@ -1,0 +1,8 @@
+{
+	"name": "Menu"
+	,"desc": "Preconfigured menu"
+	,"kind": "header"
+	,"modelURI": "proxy/site/snowpackage/model/site-model.xsd?filter=/codeslots/codeslot/Header/Experiment"
+	,"skipValidation": true
+	,"contentURI": "proxy/site/snowpackage/snippets/menu-1.jsx"
+}
