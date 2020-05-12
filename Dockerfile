@@ -24,5 +24,5 @@ COPY public /site/public
 
 # start
 WORKDIR ${SITE_HOME}
-ENTRYPOINT HOST=0.0.0.0 PORT=3010 BROWSER=none npm start
-
+#ENTRYPOINT HOST=0.0.0.0 PORT=3010 BROWSER=none npm start
+ENTRYPOINT sleep 999999
