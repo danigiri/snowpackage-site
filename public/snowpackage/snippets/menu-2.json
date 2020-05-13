@@ -1,5 +1,5 @@
 {
-	"name": "Menu"
+	"name": "Menu M"
 	,"desc": "Preconfigured menu, medium logo"
 	,"kind": "header"
 	,"modelURI": "proxy/site/snowpackage/model/site-model.xsd?filter=/codeslots/codeslot/Header/Menu"
