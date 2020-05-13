@@ -1,7 +1,7 @@
 {
 	"name": "A|A Experiment"
 	,"desc": "A|S header experiment example"
-	,"kind": "examples"
+	,"kind": "experiments"
 	,"modelURI": "proxy/site/snowpackage/model/site-model.xsd?filter=/codeslots/codeslot/Header/Experiment"
 	,"skipValidation": true
 	,"contentURI": "proxy/site/snowpackage/snippets/experiment-aa.jsx"

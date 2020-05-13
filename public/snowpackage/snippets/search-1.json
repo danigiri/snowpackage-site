@@ -4,5 +4,5 @@
 	,"kind": "header"
 	,"modelURI": "proxy/site/snowpackage/model/site-model.xsd?filter=/codeslots/codeslot/Header/Search"
 	,"skipValidation": true
-	,"contentURI": "proxy/site/snowpackage/snippets/menu-1.jsx"
+	,"contentURI": "proxy/site/snowpackage/snippets/search-1.jsx"
 }
