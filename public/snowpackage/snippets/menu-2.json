@@ -2,7 +2,7 @@
 	"name": "Menu"
 	,"desc": "Preconfigured menu, medium logo"
 	,"kind": "header"
-	,"modelURI": "proxy/site/snowpackage/model/site-model.xsd?filter=/codeslots/codeslot/Header/Experiment"
+	,"modelURI": "proxy/site/snowpackage/model/site-model.xsd?filter=/codeslots/codeslot/Header/Menu"
 	,"skipValidation": true
 	,"contentURI": "proxy/site/snowpackage/snippets/menu-2.jsx"
 }

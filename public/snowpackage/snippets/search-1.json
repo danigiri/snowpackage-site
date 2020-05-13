@@ -2,7 +2,7 @@
 	"name": "Search"
 	,"desc": "Preconfigured search, cars option"
 	,"kind": "header"
-	,"modelURI": "proxy/site/snowpackage/model/site-model.xsd?filter=/codeslots/codeslot/Header/Experiment"
+	,"modelURI": "proxy/site/snowpackage/model/site-model.xsd?filter=/codeslots/codeslot/Header/Search"
 	,"skipValidation": true
 	,"contentURI": "proxy/site/snowpackage/snippets/menu-1.jsx"
 }
