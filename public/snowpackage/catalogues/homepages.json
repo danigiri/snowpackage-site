@@ -9,6 +9,6 @@
 		{ "name": "Menu 2", "kind": "header", "uri": "/proxy/site/snowpackage/snippets/menu-2.json"},
 		{ "name": "Search", "kind": "header", "uri": "/proxy/site/snowpackage/snippets/search-1.json"},
 		{ "name": "A|A Experiment", "kind": "experiments", "uri": "/proxy/site/snowpackage/snippets/experiment-aa.json"},
-		{ "name": "A|B Experiment 1", "kind": "experiments", "uri": "/proxy/site/snowpackage/snippets/experiment-1.json"},
+		{ "name": "A|B Experiment 1", "kind": "experiments", "uri": "/proxy/site/snowpackage/snippets/experiment-1.json"}
 	]
 }
