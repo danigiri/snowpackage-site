@@ -12,9 +12,9 @@ The easiest way is to use Docker and Docker compose
 
 # clone the repos, all from the same folder, checking out the same version
 git clone https://github.com/danigiri/morfeu.git
-cd morfeu && git -c advice.detachedHead=false checkout 0.7.0 && cd ..
+cd morfeu && git -c advice.detachedHead=false checkout 0.8.0 && cd ..
 git clone https://github.com/danigiri/snow-package.git
-cd snow-package && git -c advice.detachedHead=false checkout 0.7.0 && cd ..
+cd snow-package && git -c advice.detachedHead=false checkout 0.8.0 && cd ..
 
 # clone the demo site
 git clone https://github.com/danigiri/snowpackage-site.git
