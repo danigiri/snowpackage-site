@@ -1,13 +1,13 @@
-# snowpackage-site
+# Snow package example site
 A sample website implemented in React to test with snowpackage (using JSX)
 
 With this example website we can see the concepts Morfew and its JS compatibility service can offer for sites implemented in React and similar frameworks
 
 Please refer to the [Morfeu](https://github.com/danigiri/morfeu) documentation for further information.
 
-# Getting started
+## Getting started
 
-The easiest way is to use Docker and Docker compose
+The easiest way is to use Docker and Docker Compose
 
 ```shell
 
@@ -27,9 +27,6 @@ cd snowpackage-site && git fetch && git -c advice.detachedHead=false checkout 0.
 ## your docker host IP
 docker-compose build --build-arg HOSTNAME=$DOCKERIP && docker-compose up
 
-# on a separate window, start the demo site (this will start react)
-docker exec -it snowpackage-site /bin/bash -c 'HOST=0.0.0.0 PORT=3010 BROWSER=none /usr/local/bin/npm start
-
 # on another window,  jump into the demo site to make live changes
 docker exec -it snowpackage-site /bin/bash
 
@@ -41,6 +38,14 @@ docker volume ls | grep site
 
 ```
 
+## Architecture
+
+![Architecture](./site/img/architecture.png)
+
+Morfeu presents the UI to the user, requests for JSX are routed to the Snow Package service that has the path to the JSX files in the React application.
+
+
+## How it looks
 
 # Development
 

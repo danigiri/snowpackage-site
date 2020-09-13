@@ -28,6 +28,6 @@ RUN sed -i "s/cell-presentation>http:\/\/localhost/cell-presentation>http:\/\/$H
 
 # start
 WORKDIR ${SITE_HOME}
-# react-scripts seems not to like not being in a non-interactive session 
-#ENTRYPOINT HOST=0.0.0.0 PORT=3010 BROWSER=none npm start
-ENTRYPOINT sleep 999999
+# react-scripts needs CI=true (or a tty) to run
+ENTRYPOINT CI=true HOST=0.0.0.0 PORT=3010 BROWSER=none npm start
+#ENTRYPOINT sleep 999999
