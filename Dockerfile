@@ -5,7 +5,6 @@ LABEL maintainer="Daniel Giribet - dani [at] calidos [dot] cat"
 # build variables for the site, the HOSTNAME needs to be informed to make preview work
 ARG SITE_HOME=/site
 ENV HOSTNAME=localhost
-ENV RUNTIME_HOME=/site-runtime
 
 # install dependencies (bash to launch angular build, ncurses for pretty output with tput, git for npm deps)
 RUN apk add --no-cache curl bash ncurses git sed
@@ -33,6 +32,6 @@ COPY public ${SITE_HOME}/public
 ENTRYPOINT CI=true HOST=0.0.0.0 PORT=3010 BROWSER=none cd ${RUNTIME_HOME} && \
 	sed -i "s/cell-presentation>http:\/\/localhost/cell-presentation>http:\/\/$HOSTNAME/g" \
 	./public/snowpackage/model/site-cells.xsd && \
-	cp -r ${SITE_HOME} ${RUNTIME_HOME} && \
 	npm start
+#	cp -r ${SITE_HOME} ${RUNTIME_HOME} && \
 #ENTRYPOINT sleep 999999
