@@ -11,30 +11,33 @@ ENV SITE_HOME=${SITE_HOME}
 RUN apk add --no-cache curl bash ncurses git sed
 RUN apk add --no-cache --update nodejs npm
 
-#RUN [[ -d $(SITE_HOME} ]] || mkdir -p $(SITE_HOME}
+RUN mkdir -p /site-build
 
-COPY LICENSE ${SITE_HOME}/LICENSE
-COPY NOTICE ${SITE_HOME}/NOTICE
-COPY package-lock.json ${SITE_HOME}/package-lock.json
-COPY package.json ${SITE_HOME}/package.json
+COPY LICENSE /site-build/LICENSE
+COPY NOTICE /site-build/NOTICE
+COPY package-lock.json /site-build/package-lock.json
+COPY package.json /site-build/package.json
 
 # copy resources and code now
-COPY src ${SITE_HOME}/src
-RUN cd ${SITE_HOME} && npm install
+COPY src /site-build/src
+RUN cd /site-build && npm install
 
-COPY public ${SITE_HOME}/public
-RUN cd ${SITE_HOME} && cp -r . /site-backup
+COPY public /site-build/public
 # this is needed for cp to work with flags like -n
 RUN apk add --no-cache --update coreutils
 
 # okay, let's break it down
 # react-scripts needs CI=true (or a tty) to run, so we set those env vars TODO: setup as docker env vars
 # secondly, we configure the cell presentation URL in the model with a simple sed
-# next, we copy all the site to a 2nd location, as this location could be in the container or could be a volume
+# next, we copy all the site from the build location to where SITE_HOME, as this could be a shared volume
 # finally, we start the node react dev server with npm start
 # by doing this search and replace we ensure that preview works in a different host 
-ENTRYPOINT CI=true HOST=0.0.0.0 PORT=3010 BROWSER=none cd ${SITE_HOME} && \
-	cp -nr /site-backup/* ${SITE_HOME} && \
+ENV CI=true
+ENV HOST=0.0.0.0
+ENV PORT=3010 
+ENV BROWSER=none
+ENTRYPOINT cd ${SITE_HOME} && \
+	cp -nr /site-build/* ${SITE_HOME} && \
 	sed -i "s/cell-presentation>http:\/\/localhost/cell-presentation>http:\/\/$HOSTNAME/g" \
 		${SITE_HOME}/public/snowpackage/model/site-cells.xsd && \
 	npm start
