@@ -33,9 +33,9 @@ RUN apk add --no-cache --update coreutils
 # next, we copy all the site to a 2nd location, as this location could be in the container or could be a volume
 # finally, we start the node react dev server with npm start
 # by doing this search and replace we ensure that preview works in a different host 
-ENTRYPOINT CI=true HOST=0.0.0.0 PORT=3010 BROWSER=none cd ${RUNTIME_HOME} && \
-	cp -nr /site-backup ${SITE_HOME} && \
-	sed -i "s/cell-presentation>http:\/\/localhost/cell-presentation>http:\/\/$HOSTNAME/g" \
-		${SITE_HOME}/public/snowpackage/model/site-cells.xsd && \
-	npm start
-#ENTRYPOINT sleep 999999
+#ENTRYPOINT CI=true HOST=0.0.0.0 PORT=3010 BROWSER=none cd ${RUNTIME_HOME} && \
+#	cp -nr /site-backup ${SITE_HOME} && \
+#	sed -i "s/cell-presentation>http:\/\/localhost/cell-presentation>http:\/\/$HOSTNAME/g" \
+#		${SITE_HOME}/public/snowpackage/model/site-cells.xsd && \
+#	npm start
+ENTRYPOINT sleep 999999
