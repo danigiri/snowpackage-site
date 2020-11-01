@@ -15,7 +15,7 @@ export DOCKERIP=<your docker ip here>
 
 # clone the repos, all from the same folder, checking out the same version
 git clone https://github.com/danigiri/morfeu.git
-cd morfeu && git fetch && git -c advice.detachedHead=false checkout 0.8.1 && cd ..
+cd morfeu && git fetch && git -c advice.detachedHead=false checkout 0.8.10 && cd ..
 git clone https://github.com/danigiri/snow-package.git
 cd snow-package && git fetch && git -c advice.detachedHead=false checkout 0.8.1 && cd ..
 
