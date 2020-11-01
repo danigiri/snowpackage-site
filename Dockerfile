@@ -24,6 +24,8 @@ RUN cd ${SITE_HOME} && npm install
 
 COPY public ${SITE_HOME}/public
 RUN cd ${SITE_HOME} && cp -r . /site-backup
+# this is needed for cp to work with flags like -n
+RUN apk add --no-cache --update coreutils
 
 # okay, let's break it down
 # react-scripts needs CI=true (or a tty) to run, so we set those env vars TODO: setup as docker env vars
