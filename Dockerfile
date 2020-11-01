@@ -31,7 +31,7 @@ COPY public ${SITE_HOME}/public
 # by doing this search and replace we ensure that preview works in a different host 
 ENTRYPOINT CI=true HOST=0.0.0.0 PORT=3010 BROWSER=none cd ${RUNTIME_HOME} && \
 	sed -i "s/cell-presentation>http:\/\/localhost/cell-presentation>http:\/\/$HOSTNAME/g" \
-	./public/snowpackage/model/site-cells.xsd && \
+	${SITE_HOME}/public/snowpackage/model/site-cells.xsd && \
 	npm start
 #	cp -r ${SITE_HOME} ${RUNTIME_HOME} && \
 #ENTRYPOINT sleep 999999
