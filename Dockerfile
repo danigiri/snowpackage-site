@@ -38,7 +38,8 @@ ENV PORT=3010
 ENV BROWSER=none
 ENTRYPOINT cd ${SITE_HOME} && \
 	cp -nr /site-build/* ${SITE_HOME} && \
-	sed -i "s/cell-presentation>http:\/\/localhost/cell-presentation>http:\/\/$HOSTNAME/g" \
+	echo "replacing IFRAME presentation localhost with '${HOSTNAME}' on ${SITE_HOME}" && \
+	sed -i "s/type=\"IFRAME\">http:\/\/localhost/type=\"IFRAME\">http:\/\/${HOSTNAME}/g" \
 		${SITE_HOME}/public/snowpackage/model/site-cells.xsd && \
 	npm start
 # ENTRYPOINT sleep 99999
