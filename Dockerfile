@@ -38,8 +38,8 @@ ENV PORT=3010
 ENV BROWSER=none
 ENTRYPOINT cd ${SITE_HOME} && \
 	cp -nr /site-build/* ${SITE_HOME} && \
-	echo "replacing IFRAME presentation localhost with '${HOSTNAME}' on ${SITE_HOME}" && \
-	sed -i "s/type=\"IFRAME\">http:\/\/localhost/type=\"IFRAME\">http:\/\/${HOSTNAME}/g" \
+	echo "replacing IFRAME presentation localhost:3010 with '${HOSTNAME}' on ${SITE_HOME}" && \
+	sed -i "s/type=\"IFRAME\">http:\/\/localhost:3010/type=\"IFRAME\">http:\/\/${HOSTNAME}/g" \
 		${SITE_HOME}/public/snowpackage/model/site-cells.xsd && \
 	npm start
 # ENTRYPOINT sleep 99999
