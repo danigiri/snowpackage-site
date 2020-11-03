@@ -41,4 +41,4 @@ ENTRYPOINT cd ${SITE_HOME} && \
 	sed -i "s/cell-presentation>http:\/\/localhost/cell-presentation>http:\/\/$HOSTNAME/g" \
 		${SITE_HOME}/public/snowpackage/model/site-cells.xsd && \
 	npm start
-# ENTRYPOINT sleep 999999
+# ENTRYPOINT sleep 99999
