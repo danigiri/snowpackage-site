@@ -21,7 +21,7 @@ cd snow-package && git fetch && git -c advice.detachedHead=false checkout v0.8.1
 
 # clone the demo site
 git clone https://github.com/danigiri/snowpackage-site.git
-cd snowpackage-site && git fetch && git -c advice.detachedHead=false checkout 0.8.10
+cd snowpackage-site && git fetch && git -c advice.detachedHead=false checkout v0.8.10
 
 # start the build and the services (this will take a while), remember DOCKERIP neeeds to be 
 ## your docker host IP
