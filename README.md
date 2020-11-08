@@ -1,11 +1,15 @@
-# Snow package example site
+# Snow Package example site
 A sample website implemented in React to test with snowpackage (using JSX)
 
-With this example website we can see the concepts Morfew and its JS compatibility service can offer for sites implemented in React and similar frameworks
+With this example website we can see the concepts Morfew and its JS compatibility service can offer for sites implemented in React and similar frameworks.
+
+This [blog post](http://dani.calidos.cat/visual-drag-and-drop-a-b-web-testing/) explains the concept in more detail, showcasing how we can do drag and drop A/B testing visually with this system.
 
 Please refer to the [Morfeu](https://github.com/danigiri/morfeu) documentation for further information.
 
 ## Getting started
+
+### Docker
 
 The easiest way is to use Docker and Docker Compose
 
@@ -17,7 +21,7 @@ export DOCKERIP=<your docker ip here>
 git clone https://github.com/danigiri/morfeu.git
 cd morfeu && git fetch && git -c advice.detachedHead=false checkout v0.8.10 && cd ..
 git clone https://github.com/danigiri/snow-package.git
-cd snow-package && git fetch && git -c advice.detachedHead=false checkout v0.8.16 && cd ..
+cd snow-package && git fetch && git -c advice.detachedHead=false checkout v0.8.17 && cd ..
 
 # clone the demo site
 git clone https://github.com/danigiri/snowpackage-site.git
@@ -37,6 +41,34 @@ docker volume ls | grep site
 # demo site should be at http://DOCKERIP:3010
 
 ```
+
+### Kubernetes
+
+The whole system can be run in Kubernetes without a problem. The container images can be built using [Argo Workflows](https://argoproj.github.io/argo/), [Kaniko](https://github.com/GoogleContainerTools/kaniko) and deployed using [ArgoCD](https://argoproj.github.io/argo-cd/). Kubernetes object files and Helm charts can be found in this separate github [project](https://github.com/danigiri/kubernetes-doodles).
+
+#### Morfeu
+  - Argo workflow – [morfeu-workflow.yaml](https://github.com/danigiri/kubernetes-doodles/blob/master/morfeu/workflow/morfeu-workflow.yaml)
+  - Helm chart for ArgoCD, with deployment, service and ingress objects – [link](https://github.com/danigiri/kubernetes-doodles/tree/master/morfeu/helm)
+
+After creating the ArgoCD application from the helm chart and before synching, you need to run
+
+`argocd app set morfeu -p image.args='{-D__RESOURCES_PREFIX=http://snow-package-service.snowpackage-site.svc.cluster.local:8990/,-D__PROXY_PREFIX=http://snow-package-service.snowpackage-site.svc.cluster.local:8990}'`
+
+to point the Morfeu configuration to the Snow Package internal service.
+
+#### Persistent Volume
+The code for the React site sits on a Persistent Volume ([docs](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)) which is shared between the SnowPackage microservice and the actual React application. As defined by the Morfeu model, SnowPackage does not sit in the critical path of the React appliation, and can be turned off at will.
+
+The [snowpackage-site-pvc.yaml](https://github.com/danigiri/kubernetes-doodles/blob/master/snowpackage-site/storage/snowpackage-site-pvc.yaml) Kubernetes object definition file, which specifies a Persistent Volume claim called `snowpackage-site-pvc`.
+
+Snow-package
+  - Argo workflow – [link](https://github.com/danigiri/kubernetes-doodles/tree/master/snow-package/workflow)
+  - YAML files for Argo CD, with deployment and service object files [link](https://github.com/danigiri/kubernetes-doodles/tree/master/snow-package), in this case, the link to React app service is hardcoded in the deployment container `args` but it can be easily changed or turned into a configurable Helm chart.
+
+Snowpackage-site
+  - Argo workflow – [link](https://github.com/danigiri/kubernetes-doodles/blob/master/snowpackage-site/workflow/snowpackage-site-workflow.yaml)
+  - YAML files for Argo CD, with deployment and service object files [link](https://github.com/danigiri/kubernetes-doodles/tree/master/snowpackage-site) which will deploy the app, the service and an ingress. The app is deployed in development mode to be able to refresh whenever changes are made in Morfeu.
+
 
 ## Architecture
 
