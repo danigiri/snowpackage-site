@@ -1,7 +1,7 @@
 # Snow Package example site
 A sample website implemented in React to test with snowpackage (using JSX)
 
-With this example website we can see the concepts Morfew and its JS compatibility service can offer for sites implemented in React and similar frameworks.
+With this example website we can see the concepts Morfeu and its JS compatibility service can offer for sites implemented in React and similar frameworks.
 
 This [blog post](http://dani.calidos.cat/visual-drag-and-drop-a-b-web-testing/) explains the concept in more detail, showcasing how we can do drag and drop A/B testing visually with this system.
 
