@@ -6,14 +6,14 @@ services:
             context: ../morfeu
             args:
                 MAVEN_OPTS: ${MAVEN_OPTS_ARG}
-        image: morfeu:0.8.10
+        image: morfeu:0.8.11
         command: -D__RESOURCES_PREFIX=http://snow-package:8990/ -D__PROXY_PREFIX=http://snow-package:8990
         ports:
             - 8980:8980
     snowpackage_site:
         container_name: snowpackage-site
         build: .
-        image: snowpackage-site:0.8.9
+        image: snowpackage-site:0.8.11
         ports:
             - 3010:3010
         volumes:
@@ -24,7 +24,7 @@ services:
             context: ../snow-package
             args:
                 MAVEN_OPTS: ${MAVEN_OPTS_ARG}
-        image: snow-package:0.0.2
+        image: snow-package:0.8.17
         command: -D__RESOURCES_PREFIX=file:///site/src/snowpackage/ -D__PROXY_PREFIX=http://snowpackage-site:3010
         ports:
             - 8990:8990
