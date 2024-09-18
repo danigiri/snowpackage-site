@@ -1,4 +1,4 @@
-FROM node:22
+FROM node:22-alpine3.20
 
 LABEL maintainer="Daniel Giribet - dani [at] calidos [dot] cat"
 
@@ -9,7 +9,7 @@ ENV SITE_HOME=${SITE_HOME}
 
 # install dependencies (bash to launch angular build, ncurses for pretty output with tput, git for npm deps)
 RUN apk add --no-cache curl bash ncurses git sed
-RUN apk add --no-cache --update nodejs npm
+#RUN apk add --no-cache --update nodejs npm
 
 RUN mkdir -p /site-build
 
@@ -36,10 +36,11 @@ ENV CI=true
 ENV HOST=0.0.0.0
 ENV PORT=3010 
 ENV BROWSER=none
-ENTRYPOINT cd ${SITE_HOME} && \
-	cp -nr /site-build/* ${SITE_HOME} && \
+RUN mkdir -p ${SITE_HOME}
+WORKDIR ${SITE_HOME} 
+RUN cp -nr /site-build/* ${SITE_HOME} && \
 	echo "replacing IFRAME presentation localhost:3010 with '${HOSTNAME}' on ${SITE_HOME}" && \
 	sed -i "s/type=\"IFRAME\">http:\/\/localhost:3010/type=\"IFRAME\">http:\/\/${HOSTNAME}/g" \
-		${SITE_HOME}/public/snowpackage/model/site-cells.xsd && \
-	npm start
+		${SITE_HOME}/public/snowpackage/model/site-cells.xsd 
+ENTRYPOINT ["npm", "start"]
 # ENTRYPOINT sleep 99999
