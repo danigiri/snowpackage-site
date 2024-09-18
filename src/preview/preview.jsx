@@ -14,7 +14,7 @@ import { Footer } from '../components/footer';
 import { Copyright } from '../components/copyright';
 import { ExtraLink } from '../components/extra-link';
 
-export function Preview(props) {
+export function Preview() {
 
 	const { component } = useParams();
 	const query = useQuery(); 
