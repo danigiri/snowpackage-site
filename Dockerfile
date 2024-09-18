@@ -1,4 +1,4 @@
-FROM jitesoft/node:13
+FROM node:22
 
 LABEL maintainer="Daniel Giribet - dani [at] calidos [dot] cat"
 

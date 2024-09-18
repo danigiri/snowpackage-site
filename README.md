@@ -21,7 +21,7 @@ export DOCKERIP=<your docker ip here>
 git clone https://github.com/danigiri/morfeu.git
 cd morfeu && git fetch && git -c advice.detachedHead=false checkout v0.8.11 && cd ..
 git clone https://github.com/danigiri/snow-package.git
-cd snow-package && git fetch && git -c advice.detachedHead=false checkout v0.8.17 && cd ..
+cd snow-package && git fetch && git -c advice.detachedHead=false checkout v0.8.18 && cd ..
 
 # clone the demo site
 git clone https://github.com/danigiri/snowpackage-site.git
