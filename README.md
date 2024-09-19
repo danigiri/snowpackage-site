@@ -19,13 +19,13 @@ export DOCKERIP=<your docker ip here>
 
 # clone the repos, all from the same folder, checking out the same version
 git clone https://github.com/danigiri/morfeu.git
-cd morfeu && git fetch && git -c advice.detachedHead=false checkout v0.8.11 && cd ..
+cd morfeu && git fetch && git -c advice.detachedHead=false checkout v0.8.19 && cd ..
 git clone https://github.com/danigiri/snow-package.git
-cd snow-package && git fetch && git -c advice.detachedHead=false checkout v0.8.18 && cd ..
+cd snow-package && git fetch && git -c advice.detachedHead=false checkout v0.8.20 && cd ..
 
 # clone the demo site
 git clone https://github.com/danigiri/snowpackage-site.git
-cd snowpackage-site && git fetch && git -c advice.detachedHead=false checkout v0.8.11
+cd snowpackage-site && git fetch && git -c advice.detachedHead=false checkout v0.8.12
 
 # start the build and the services (this will take a while), remember DOCKERIP neeeds to be 
 ## your docker host IP
