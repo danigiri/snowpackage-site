@@ -6,6 +6,9 @@ services:
             context: ../morfeu
             args:
                 MAVEN_OPTS: ${MAVEN_OPTS_ARG}
+                MAVEN_CENTRAL_MIRROR: ${MAVEN_CENTRAL_MIRROR:none}
+            extra_hosts:
+               - "${MAVEN_CENTRAL_MIRROR_HOST:none}=${MAVEN_CENTRAL_MIRROR_IP}"
         image: morfeu:0.8.19
         command: -D__RESOURCES_PREFIX=http://snow-package:8990/ -D__PROXY_PREFIX=http://snow-package:8990
         ports:
