@@ -19,7 +19,7 @@ export DOCKERIP=<your docker ip here>
 
 # clone the repos, all from the same folder, checking out the same version
 git clone https://github.com/danigiri/morfeu.git
-cd morfeu && git fetch && git -c advice.detachedHead=false checkout v0.8.19 && cd ..
+cd morfeu && git fetch && git -c advice.detachedHead=false checkout v0.8.20 && cd ..
 git clone https://github.com/danigiri/snow-package.git
 cd snow-package && git fetch && git -c advice.detachedHead=false checkout v0.8.20 && cd ..
 
@@ -29,7 +29,9 @@ cd snowpackage-site && git fetch && git -c advice.detachedHead=false checkout v0
 
 # start the build and the services (this will take a while), remember DOCKERIP neeeds to be 
 ## your docker host IP
-docker-compose build --build-arg HOSTNAME=$DOCKERIP && docker-compose up
+## you can also prepend
+# MAVEN_CENTRAL_MIRROR=http://<HOST>/maven-central MAVEN_CENTRAL_MIRROR_HOST=<HOST> MAVEN_CENTRAL_MIRROR_IP=<IP>
+HOSTNAME=$DOCKERIP docker-compose build && docker-compose up
 
 # on another window,  jump into the demo site to make live changes
 docker exec -it snowpackage-site /bin/bash
