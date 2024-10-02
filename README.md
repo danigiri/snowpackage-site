@@ -19,13 +19,13 @@ export DOCKERIP=<your docker ip here>
 
 # clone the repos, all from the same folder, checking out the same version
 git clone https://github.com/danigiri/morfeu.git
-cd morfeu && git fetch && git -c advice.detachedHead=false checkout v0.8.20 && cd ..
+cd morfeu && git fetch && git -c advice.detachedHead=false checkout v0.8.22 && cd ..
 git clone https://github.com/danigiri/snow-package.git
-cd snow-package && git fetch && git -c advice.detachedHead=false checkout v0.8.20 && cd ..
+cd snow-package && git fetch && git -c advice.detachedHead=false checkout v0.8.21 && cd ..
 
-# clone the demo site
+# clone the demo site (using a specific version here
 git clone https://github.com/danigiri/snowpackage-site.git
-cd snowpackage-site && git fetch && git -c advice.detachedHead=false checkout v0.8.12
+cd snowpackage-site && git fetch && git -c advice.detachedHead=false checkout v0.8.13
 
 # start the build and the services (this will take a while), remember DOCKERIP neeeds to be 
 ## your docker host IP
@@ -104,7 +104,7 @@ Morfeu presents the UI to the user, requests for JSX are routed to the Snow Pack
 
 ## License
 
-> Copyright 2020 Daniel Giribet
+> Copyright 2024 Daniel Giribet
 >
 > Licensed under the Apache License, Version 2.0 (the "License");
 > you may not use this file except in compliance with the License.

@@ -9,7 +9,7 @@ services:
                 MAVEN_CENTRAL_MIRROR: ${MAVEN_CENTRAL_MIRROR:-none}
             extra_hosts:
               - "${MAVEN_CENTRAL_MIRROR_HOST:-none}=${MAVEN_CENTRAL_MIRROR_IP:-127.0.0.1}"
-        image: morfeu:${MORFEU_VERSION:-v0.8.20}
+        image: morfeu:${MORFEU_VERSION:-v0.8.22}
         environment:
           - __RESOURCES_PREFIX=http://snow-package:8990/ 
           - __PROXY_PREFIX=http://snow-package:8990
@@ -18,7 +18,7 @@ services:
     snowpackage_site:
         container_name: snowpackage-site
         build: .
-        image: snowpackage-site:v0.8.11
+        image: snowpackage-site:v0.8.12
         ports:
             - 3010:3010
         volumes:
@@ -29,7 +29,7 @@ services:
             context: ../snow-package
             args:
                 MAVEN_OPTS: ${MAVEN_OPTS_ARG}
-                MORFEU_VERSION: ${MORFEU_VERSION:-v0.8.20}
+                MORFEU_VERSION: ${MORFEU_VERSION:-v0.8.22}
                 MAVEN_CENTRAL_MIRROR: ${MAVEN_CENTRAL_MIRROR:-none}
             extra_hosts:
               - "${MAVEN_CENTRAL_MIRROR_HOST:-none}=${MAVEN_CENTRAL_MIRROR_IP:-127.0.0.1}"
