@@ -30,6 +30,9 @@ services:
             args:
                 MAVEN_OPTS: ${MAVEN_OPTS_ARG}
                 MORFEU_VERSION: ${MORFEU_VERSION:-v0.8.20}
+                MAVEN_CENTRAL_MIRROR: ${MAVEN_CENTRAL_MIRROR:-none}
+            extra_hosts:
+              - "${MAVEN_CENTRAL_MIRROR_HOST:-none}=${MAVEN_CENTRAL_MIRROR_IP:-127.0.0.1}"
         image: snow-package:0.8.20
         environment:
          - __RESOURCES_PREFIX=file:///site/src/snowpackage/
