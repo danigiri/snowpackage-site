@@ -83,6 +83,8 @@ Morfeu presents the UI to the user, requests for JSX are routed to the Snow Pack
 
 # Development
 
+Use the following set of commands:
+
     # build the morfeu library
     cd morfeu && \
         mvn package war:war install \
@@ -100,7 +102,11 @@ Morfeu presents the UI to the user, requests for JSX are routed to the Snow Pack
     
     # start the morfeu frontend
     cd morfeu/src/main/angular && ng serve --port 3000 --proxy-config proxy.conf.js --liveReload=true
-    
+
+You can also use the CLI to do some testing:
+
+	SnowPackageCLI --tsnode=../snow-package/src/main/angular/node_modules/.bin/ts-node --tscode=../snow-package/src/main/angular/src/app/snow-package.ts parse /src/snowpackage/root.jsx
+	MorfeuCLI --model=/public/snowpackage/model/site-model.xsd parse /root-code.xml
 
 ## License
 
