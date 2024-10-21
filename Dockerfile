@@ -6,7 +6,7 @@ LABEL maintainer="Daniel Giribet - dani [at] calidos [dot] cat"
 ARG SITE_HOME=/site
 ENV SITE_HOME=${SITE_HOME}
 ARG HOSTNAME=localhost
-ENV HOSTNAME=${localhost}
+ENV HOSTNAME=${HOSTNAME}
 
 # install dependencies (bash to launch angular build, ncurses for pretty output with tput, git for npm deps)
 RUN apk add --no-cache curl bash ncurses git sed
