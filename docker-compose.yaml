@@ -17,10 +17,11 @@ services:
             - 8980:8980
     snowpackage_site:
         container_name: snowpackage-site
-        build: .
+        build: 
+          context: .
+          args:
+            HOSTNAME: ${HOSTNAME}
         image: snowpackage-site:v0.8.12
-        args:
-           HOSTNAME: ${HOSTNAME}
         ports:
             - 3010:3010
         volumes:
