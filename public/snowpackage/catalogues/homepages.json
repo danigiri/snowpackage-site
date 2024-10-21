@@ -2,7 +2,7 @@
 	"name": "Homepages"
 	,"desc": "Homepages for the Snowpackage test site"
 	,"documents": [
-		{ "name":"Root", "kind": "jsx", "uri":"/proxy/site/snowpackage/documents/root.json" }
+		{ "name":"Root", "kind": "jsx", "uri":"proxy/site/snowpackage/documents/root.json" }
 	]
 	,"snippets": [
 		{ "name": "Menu", "kind": "header", "uri": "/proxy/site/snowpackage/snippets/menu-1.json"},
