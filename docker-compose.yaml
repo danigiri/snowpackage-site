@@ -21,7 +21,7 @@ services:
           context: .
           args:
             HOSTNAME: ${HOSTNAME}
-        image: snowpackage-site:v0.8.12
+        image: snowpackage-site:v0.8.24
         ports:
             - 3010:3010
         volumes:
