@@ -25,7 +25,7 @@ cd snow-package && git fetch && git -c advice.detachedHead=false checkout v0.8.2
 
 # clone the demo site (using a specific version here
 git clone https://github.com/danigiri/snowpackage-site.git
-cd snowpackage-site && git fetch && git -c advice.detachedHead=false checkout v0.8.13
+cd snowpackage-site && git fetch && git -c advice.detachedHead=false checkout v0.8.24
 
 # start the build and the services (this will take a while), remember DOCKERIP neeeds to be 
 ## your docker host IP
@@ -85,7 +85,7 @@ Morfeu presents the UI to the user, requests for JSX are routed to the Snow Pack
 
 Use the following set of commands:
 
-    # build the morfeu library
+    # build the morfeu library (make sure you use the version snow-package depdends on)
     cd morfeu && \
         mvn package install \
         -DarchiveClasses=true -DattachClasses=true -DskipITs -DskipTests=true -Djetty.skip -Dskip-build-client=true 
