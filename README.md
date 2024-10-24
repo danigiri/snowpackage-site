@@ -19,9 +19,9 @@ export DOCKERIP=<your docker ip here>
 
 # clone the repos, all from the same folder, checking out the same version
 git clone https://github.com/danigiri/morfeu.git
-cd morfeu && git fetch && git -c advice.detachedHead=false checkout v0.8.22 && cd ..
+cd morfeu && git fetch && git -c advice.detachedHead=false checkout v0.8.24 && cd ..
 git clone https://github.com/danigiri/snow-package.git
-cd snow-package && git fetch && git -c advice.detachedHead=false checkout v0.8.21 && cd ..
+cd snow-package && git fetch && git -c advice.detachedHead=false checkout v0.8.24 && cd ..
 
 # clone the demo site (using a specific version here
 git clone https://github.com/danigiri/snowpackage-site.git
@@ -87,7 +87,7 @@ Use the following set of commands:
 
     # build the morfeu library
     cd morfeu && \
-        mvn package war:war install \
+        mvn package install \
         -DarchiveClasses=true -DattachClasses=true -DskipITs -DskipTests=true -Djetty.skip -Dskip-build-client=true 
     
     # start morfeu pointing at the host and port where we will run the snow package app
@@ -96,12 +96,19 @@ Use the following set of commands:
         -D__PROXY_PREFIX=http://localhost:8990
     
     cd snow-package && \ 
-        mvn resources:resources jetty:run \
+        mvn resources:resources compile jetty:run \
         -D__RESOURCES_PREFIX=file://$(pwd)/../snowpackage-site/src/snowpackage/ \
         -D__PROXY_PREFIX=http://localhost:3010
     
     # start the morfeu frontend
-    cd morfeu/src/main/angular && ng serve --port 3000 --proxy-config proxy.conf.js --liveReload=true
+    cd morfeu/src/main/typescript && npm start
+    
+    # start the site
+    
+    cd snowpackage-site && npm start
+    
+    # morfeu should be at http://localhost:3000/?config=%2Fproxy%2Fsite%2Fsnowpackage%2Fconfig.json
+    
 
 You can also use the CLI to do some testing:
 
